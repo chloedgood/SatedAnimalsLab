@@ -45,15 +45,33 @@ class satedAnimalsTests {
 	assertEquals(true, pig.isSated());
 	}
 	
-//	@Test
-//	public void ChimpTest() {
-//	//Arrange
-//	Chimp chimp = new Chimp();
-//	//Act
-//	chimp.eat(FoodType.PLANTS, 1000);
-//	chimp.eat(FoodType.MEAT, 100);
-//	
-//	//Assert
-//	assertEquals(false, chimp.isSated());
-//	}
+	@Test
+	void ChimpTest() {
+		Chimp chimp = new Chimp();
+		chimp.eat(FoodType.MEAT, 1100);
+		assertEquals(true, chimp.isSated());
+	}
+	
+	@Test
+	void PandaTest() {
+		Panda panda = new Panda();
+		
+		panda.eat(FoodType.PLANTS, 3000);
+		assertNotEquals(true, panda.isSated());
+		
+		panda.eat(FoodType.PLANTS, 6000);
+		assertEquals(true, panda.isSated());
+	}
+	
+	@Test 
+	void WolfTest() {
+		Wolf wolf = new Wolf();
+		wolf.eat(FoodType.MEAT, 200);
+		wolf.eat(FoodType.MEAT, 200);
+		wolf.eat(FoodType.MEAT, 200);
+		wolf.eat(FoodType.MEAT, 200);
+		assertEquals(true, wolf.isSated());
+	}
+
+
 }
